@@ -1,5 +1,6 @@
 <?php
 include "menu.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,23 +14,67 @@ include "menu.php";
     <title>Cadastrar</title>
 </head>
 <body>
-<div class="container">
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<p></p>
+<div class="container-fluid">
+    <h3>Cadastro</h3>
+    <div class="col-md-11 col-xl-12">
+        <form id="contact-form" name="formularioCadastro" action="home.php" method="POST">
+
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-6 form-group">
+                    <div class="md-form">
+                        <label for="name" class="">E-mail:</label>
+                        <input type="text" id="name" name="email" class="form-control">
+
+                    </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 form-group">
+                    <div class="md-form">
+                        <label for="email" class="">CPF:</label>
+                        <input type="text" id="email" name="cpf" class="form-control">
+                    </div>
+                </div>
+                <!--Grid column-->
+                <div class="col-md-6 form-group">
+                    <div class="md-form">
+                        <label for="nome" class="">Nome:</label>
+                        <input type="text" id="nome" name="nome" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <div class="md-form">
+                        <label for="sobrenome" class="">Sobrenome</label>
+                        <input type="text" id="sobrenome" name="sobrenome" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <div class="md-form">
+                        <label for="senha" class="">Senha</label>
+                        <input type="password" id="senha" name="senha" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+            <!--Grid row-->
+
+
+
+
+
+        </form>
+
+        <div class="center-on-small-only">
+            <a class="btn btn-success" onclick="document.getElementById('contact-form').submit();">Send</a>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <div class="status"></div>
+    </div>
+
+</div>
 </div>
     <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>

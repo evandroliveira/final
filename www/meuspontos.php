@@ -2,6 +2,24 @@
     require "menu.php";
     //$pontos_receber = array(5,10,20,40,20);
     $meus_pontos = array(5,10,20,40,20);
+session_start();
+require 'config.php';
+if(empty($_SESSION['lg'])) {
+    header("Location: login.php");
+    exit;
+} else {
+    $id = $_SESSION['lg'];
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $sql = "SELECT * FROM usuarios WHERE id = :id AND ip = :ip";
+    $sql = $pdo->prepare($sql);
+    $sql->bindValue(":id", $id);
+    $sql->bindValue(":ip", $ip);
+    $sql->execute();
+    if($sql->rowCount() == 0) {
+        header("Location: login.php");
+        exit;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +92,7 @@
         });
     }
 </script>
-
+<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

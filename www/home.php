@@ -1,31 +1,23 @@
 <?php
-include "menu1.php";
+include "menu.php";
 session_start();
 require 'config.php';
-$_SESSION['lg'] = '';
-if(isset($_POST['cpf']) && !empty($_POST['cpf'])) {
-    $cpf = $_POST['cpf'];
-    $senha = $_POST['senha'];
-    $sql = "SELECT * FROM usuarios WHERE cpf = :cpf AND senha = MD5(:senha)";
+if(empty($_SESSION['lg'])) {
+    header("Location: login.php");
+    exit;
+} else {
+    $id = $_SESSION['lg'];
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $sql = "SELECT * FROM usuarios WHERE id = :id AND ip = :ip";
     $sql = $pdo->prepare($sql);
-    $sql->bindValue(":cpf", $cpf);
-    $sql->bindValue(":senha", $senha);
+    $sql->bindValue(":id", $id);
+    $sql->bindValue(":ip", $ip);
     $sql->execute();
-    if($sql->rowCount() > 0) {
-        $sql = $sql->fetch();
-        $id = $sql['id'];
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $_SESSION['lg'] = $id;
-        $sql = "UPDATE usuarios SET ip = :ip WHERE id = :id";
-        $sql = $pdo->prepare($sql);
-        $sql->bindValue(":ip", $ip);
-        $sql->bindValue(":id", $id);
-        $sql->execute();
-        header("Location: home.php");
+    if($sql->rowCount() == 0) {
+        header("Location: login.php");
         exit;
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -66,9 +58,9 @@ if(isset($_POST['cpf']) && !empty($_POST['cpf'])) {
         <div class="imagens">
             <img src="assets/imagens/14417.jpg">
         </div>
-            <div class="detalhes">
-                <p>Fogão 5 Bocas Mueller Moderatto 601187001 </p>
-            </div>
+        <div class="detalhes">
+            <p>Fogão 5 Bocas Mueller Moderatto 601187001 </p>
+        </div>
     </div>
     <div class="itens">
         <div class="imagens">
@@ -127,7 +119,7 @@ if(isset($_POST['cpf']) && !empty($_POST['cpf'])) {
         </div>
     </div>
 </div>
-    <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
