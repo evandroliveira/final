@@ -49,7 +49,7 @@
         <canvas id="grafico"></canvas>
 </div>
 <div class="container">
-    <a href="indeque.php" class="btn btn-primary btn-lg" style="margin-top: 10px; width: 100%;">Indique</a>
+    <a href="indique.php" class="btn btn-primary btn-lg" style="margin-top: 10px; width: 100%; margin-left: -5px;">Indique</a>
 </div>
 
 </div>
@@ -74,7 +74,6 @@
         });
     }
 </script>
-<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

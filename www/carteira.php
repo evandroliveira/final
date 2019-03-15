@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <script>
-        var myChart = new Chart(ctx, {...});
-    </script>
     <title>Meus pontos</title>
 </head>
 <body>
@@ -49,7 +46,6 @@
 
 </div>
 
-<script type="text/javascript" src="assets/js/Chart.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
 <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>

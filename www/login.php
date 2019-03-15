@@ -1,5 +1,5 @@
 <?php
-    include "menu.php";
+    include "menu1.php";
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +27,8 @@
             </div>
 
             <!-- Login Form -->
-            <form action="index.php">
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="CPF">
+            <form method="POST">
+                <input type="text" id="login" class="fadeIn second" name="cpf" placeholder="CPF">
                 <a href="meuspontos.php"><img src="assets/imagens/play.png"></a>
             </form>
 
